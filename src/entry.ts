@@ -18,9 +18,9 @@ async function initializeRevenge() {
 
         console.log(stack ?? e?.toString?.() ?? e);
         alert([
-            "Failed to load Vencore!\n",
+            "Failed to load luckycord!\n",
             `Build Number: ${ClientInfoManager.getConstants().Build}`,
-            `Vencore: ${version}`,
+            `luckycord: ${version}`,
             stack || e?.toString?.(),
         ].join("\n"));
     }

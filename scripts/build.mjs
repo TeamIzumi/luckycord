@@ -31,7 +31,7 @@ let context = null;
 const config = {
     entryPoints: ["src/entry.ts"],
     bundle: true,
-    outfile: "dist/vencore.js",
+    outfile: "dist/luckycord.js",
     format: "iife",
     splitting: false,
     external: [],
@@ -41,7 +41,7 @@ const config = {
         "const-and-let": false
     },
     footer: {
-        js: "//# sourceURL=vencore"
+        js: "//# sourceURL=luckycord"
     },
     loader: {
         ".png": "dataurl"

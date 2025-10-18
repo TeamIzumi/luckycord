@@ -7,13 +7,13 @@ import { TableRow } from "@metro/common/components";
 import { findByNameLazy, findByPropsLazy } from "@metro/wrappers";
 import { wrapOnPress } from "@lib/ui/settings/patches/shared";
 
-// Inject one row into the existing Vencore section
+// Inject one row into the existing luckycord section
 export default function patchSettings(): () => void {
   const settingConstants = findByPropsLazy("SETTING_RENDERER_CONFIG");
   const SettingsOverviewScreen = findByNameLazy("SettingsOverviewScreen", false);
 
   // Define our row (rendered via custom page route)
-  const rowKey = "VENCORE_PLUGIN_BROWSER";
+  const rowKey = "luckycord_PLUGIN_BROWSER";
   const rowConfig = {
     type: "pressable",
     title: () => "Plugin Browser",
@@ -33,10 +33,10 @@ export default function patchSettings(): () => void {
     set: v => { current = v; }
   });
 
-  // On first render, append our row key into the Vencore section
+  // On first render, append our row key into the luckycord section
   const unpatch = after("default", SettingsOverviewScreen, (_args, ret) => {
     const { sections } = findInReactTree(ret, i => i?.props?.sections).props;
-    const venSection = sections?.find((s: any) => s?.label === "Vencore" || s?.title === "Vencore");
+    const venSection = sections?.find((s: any) => s?.label === "luckycord" || s?.title === "luckycord");
     if (venSection && Array.isArray(venSection.settings) && !venSection.settings.includes(rowKey)) {
       venSection.settings = [...venSection.settings, rowKey];
     }
